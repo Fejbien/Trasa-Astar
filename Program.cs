@@ -1,14 +1,19 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace znajdowanieTrasyAStar
 {
     public class Program
     {
+		/*
+		 Przeskoda = #
+		 Znaleziona trasa = O
+		 */
+		
 		public static List<List<Node>> grid = new List<List<Node>>();
 		public static List<Node> UkonczoneSciezka;
-		public const int WielkoscX = 10;
-		public const int WielkoscY = 10;
+		public const int WielkoscX = 50;
+		public const int WielkoscY = 50;
 
         static void Main(string[] args)
         {
@@ -23,7 +28,7 @@ namespace znajdowanieTrasyAStar
 				grid.Add(gridX);
             }
 
-			Pokaz();
+			//Pokaz();
 			FindPath(grid[0][0], grid[WielkoscX - 1][WielkoscY - 1]);
             Console.WriteLine("\n\n");
 			Pokaz();
@@ -38,6 +43,8 @@ namespace znajdowanieTrasyAStar
 					UkonczoneSciezka[i].znak = 'O';
 				}
 			}
+			else
+                Console.WriteLine("Nie znaleziono trasy");
 			for (int x = 0; x < WielkoscX; x++)
             {
                 for (int y = 0; y < WielkoscY; y++)
